@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard 3</title>
+  <title>Amnesty International Nepal | Banepa Youth Network</title>
+  <link rel="shortcut icon" type="image/x-icon" href="img/ai-logo.png">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -11,7 +12,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
   <!-- IonIcons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.0/esm/ionicons.min.js">
 
@@ -20,6 +21,8 @@
 
   <!-- Calender style -->
   <link rel="stylesheet" href="{{ asset('/backend/css/main.css') }}" />
+
+  {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"> --}}
 
 </head>
 <!--
@@ -83,7 +86,7 @@
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview" style="padding-left: 10%;">
               <li class="nav-item">
                 <a href="pages/tables/simple.html" class="nav-link">
                   <i class="nav-icon fas fa-home"></i>
@@ -91,23 +94,54 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
-                <i class="nav-icon fas fa-link"></i>
+                <a href="{{ route ('admin.activities') }}" class="nav-link">
+                <i class="nav-icon fas fa-briefcase"></i>
                   <p>Activities</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/tables/jsgrid.html" class="nav-link">
-                  <i class="nav-icon fas fa-link"></i>
+                <a href="{{ route ('admin.contact') }}" class="nav-link">
+                  <i class="nav-icon fas fa-address-book"></i>
                   <p>Contact</p>
                 </a>
               </li>
+
+              {{---Nested menu for About-----}}
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-link"></i>
+                  <p>
+                   About
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview" style="padding-left: 10%;">
+                  <li class="nav-item">
+                    <a href="{{ route ('admin.about') }}" class="nav-link">
+                        <i class="nav-icon fas fa-history"></i>
+                      <p>AI Nepal's History</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ route ('admin.team') }}" class="nav-link">
+                        <i class="nav-icon fas fa-handshake"></i>
+                      <p>Our Team</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ route ('admin.advisor-club') }}" class="nav-link">
+                        <i class="nav-icon fas fa-book-reader"></i>
+                      <p>Advisor Club</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              {{-- ---------------------------------------------- --}}
             </ul>
           </li>
-
             <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-link"></i>
+              <i class="nav-icon fas fa-file-signature"></i>
               <p>
                 Minuting
                 <i class="fas fa-angle-left right"></i>
@@ -115,15 +149,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
-                  <i class="nav-icon fas fa-link"></i>
-                  <p>Add Minuting</p>
+                <a href="{{ route ('admin.add-minute') }}" class="nav-link">
+                  <i class="nav-icon fas fa-plus-square"></i>
+                  <p>Add Minute</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/tables/jsgrid.html" class="nav-link">
-                  <i class="nav-icon fas fa-link"></i>
-                  <p>View All Minuting</p>
+                <a href="{{ route ('admin.view-minute') }}" class="nav-link">
+                  <i class="nav-icon fas fa-eye"></i>
+                  <p>View All Minute</p>
                 </a>
               </li>
             </ul>
@@ -147,7 +181,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route ('admin.messages') }}" class="nav-link">
               <i class="nav-icon far fa-envelope"></i>
               <p>
                 Mailbox
@@ -158,7 +192,7 @@
 
           <li class="nav-header">MISCELLANEOUS</li>
           <li class="nav-item">
-            <a href="iframe.html" class="nav-link">
+            <a href="" class="nav-link">
               <i class="nav-icon fas fa-eye"></i>
               <p>View Site</p>
             </a>
@@ -223,6 +257,9 @@
 
 <!-- Page level plugin JavaScript-->
 <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+
+<!-- Text editor plugin -->
+<script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 
 <script>
     $(function () {
@@ -392,20 +429,14 @@
     })
   </script>
 
- {{-- Remove event from text input --}}
- <script>
-    $(function () {
-        $('#dataTable').DataTable({
-          "pageLength": 3,
-          "paging": true,
-          "lengthChange": false,
-          "searching": true,
-          "ordering": true,
-          "info": true,
-          "autoWidth": false
-          });
-      });
-    </script>
+<script>
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
 
+<script>
+    CKEDITOR.replace( 'details' );
+  </script>
 </body>
 </html>
