@@ -5,6 +5,26 @@
     <section class="content">
             <div class="container-fluid">
 
+                @if ($message = Session::get('success'))
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h5><i class="icon fas fa-check"></i> Success !</h5>
+                    <p>{{ $message }}</p>
+                  </div>
+                @endif
+
+                @if ($errors->any())
+                <div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h5><i class="icon fas fa-ban"></i> Alert! There were some problems with your input.</h5>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                  </div>
+                @endif
+
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                   <h1 class="h3 mb-0 text-gray-800">Activities </h1>
@@ -12,29 +32,29 @@
 
                   <row>
                           <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <table id="example" class="table table-striped table-bordered" style="width:100%">
                               <thead>
                                 <tr>
                                   <th>Title</th>
                                   <th>Date</th>
+                                  <th>Venue</th>
                                   <th>Image</th>
                                   <th>Action</th>
                                 </tr>
                               </thead>
 
                               <tbody>
+                                  @foreach ($data as $activities)
                                 <tr>
-                                  <td>Orientation Program</td>
-                                  <td>2021-03-25</td>
-                                  <td> <img src="uploads/activities/BMW GS 310.png" width="70px">
-                                     <form action="activities.php?image=15" method="POST" enctype="multipart/form-data">
-                                      <a href="#" style="font-size: 11px"> <input type="file" class="" name="fileToUpload" id="" placeholder="" value="" required=""> </a>
-                                      <button name="activities-img-update" type="submit" style="font-size: 11px"><i class="fas fa-fw fa-upload"></i></button>
-                                      </form>
+                                  <td>{{ $activities->title }}</td>
+                                  <td>{{ $activities->date }}</td>
+                                  <td> <img src="{{ asset('uploads/' . $activities->image) }}" alt="No Image" style="height:60px; width:100px;"></td>
+                                  <td> {{ $activities->venue }}
                                   </td>
                                   <td><a href=""> <i class="fas fa-fw fa-edit"></i></a> | <a href="activities.php?delete=15"><i class="fas fa-fw fa-trash"></i></a>
                                   </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                           </table>
                         </div>
@@ -56,7 +76,8 @@
 
         <div class="card-body">
          <row>
-          <form class="needs-validation" action="activities.php" method="POST" enctype="multipart/form-data" novalidate="">
+          <form class="needs-validation" action="{{ route('admin.store-activity') }}" method="POST" enctype="multipart/form-data" novalidate="">
+            @csrf
             <div class="form-row">
               <div class="col-md-4 mb-3">
                 <label for="title"> Title </label>
@@ -67,13 +88,32 @@
                 <label for="date">Date </label>
                 <input type="date" class="form-control" id="date" name="date" placeholder="" value="" required="">
               </div>
-
               <div class="col-md-4 mb-3">
-                <label for="photo"> Photo </label> <br>
-                <input type="file" class="" name="fileToUpload" id="" placeholder="" value="" required="">
+                <label for="venue">Venue </label>
+                <input type="text" class="form-control" id="venue" name="venue" placeholder="" value="" required="">
               </div>
+
             </div>
 
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                  <label for="par"> No. of Participants </label>
+                  <input type="text" class="form-control" id="par" name="participants" placeholder="" value="" required="">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                  <label for="program"> Program Type </label> <br>
+                  <select name="program_type" id="program" class="form-control">
+                      <option value="Youth">Youth Only</option>
+                      <option value="Joint">Joint</option>
+                      <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="photo"> Photo <small>* This will display as a banner image</small> </label> <br>
+                  <input type="file" class="form-control" name="image" id="" placeholder="" value="" required="">
+                </div>
+              </div>
             <div class="form-row">
                 <div class="col-md-12 mb-3">
                   <label for="details"> Details </label>

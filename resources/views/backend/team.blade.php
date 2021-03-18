@@ -4,6 +4,27 @@
 <div class="content-wrapper">
     <section class="content">
                 <div class="container-fluid">
+
+                    @if ($message = Session::get('success'))
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h5><i class="icon fas fa-check"></i> Success !</h5>
+                        <p>{{ $message }}</p>
+                      </div>
+                    @endif
+
+                    @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h5><i class="icon fas fa-ban"></i> Alert! There were some problems with your input.</h5>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                      </div>
+                    @endif
+
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                       <h1 class="h3 mb-0 text-gray-800" id="Team">Our Team
@@ -22,31 +43,29 @@
                               <th>Social Media</th>
                               <th>Photo</th>
                               <th>Action</th>
-
                             </tr>
                           </thead>
 
                           <tbody>
-
+                            @foreach ($member as $team)
                             <tr>
-                              <td>1</td>
-                              <td>Sujal Manandhar</td>
-                              <td>Coordinator</td>
-                              <td>9843525259</td>
-                              <td style="line-height: 0%;">
-                                  https://www.facebook.com/suzalmdr1999<br> <hr>
-                                  https://www.instagram.com/sujal_mdr/ <br> <hr>
-                            </td>
-                              <td>
-                                <img src="uploads/team/sujal.jpg" width="70px"> <br>
-                                <form action="about.php?image=1" method="POST" enctype="multipart/form-data">
-                                <a href="#" style="font-size: 11px"> <input type="file" class="" name="fileToUpload" id="" placeholder="" value="" required=""> </a>
-                                <button name="team-img-update" type="submit" style="font-size: 11px"><i class="fas fa-fw fa-upload"></i></button>
-                                </form>
-                              </td>
-                              <td><a href="edit.php?id=1">  <i class="fas fa-fw fa-edit"></i> </a>
-                               <a href="about.php?delete=1"><i class="fas fa-fw fa-trash"></i></a></td>
+                                <td>{{ $team->id }}</td>
+                                <td>{{ $team->full_name }}</td>
+                                <td>{{ $team->post }}</td>
+                                <td>{{ $team->mobile }}</td>
+                                <td style="line-height: 0%;">
+                                    {{ $team->fb_link }} <br> <hr>
+                                    {{ $team->insta_link }} <br> <hr>
+                                </td>
+                                <td>
+                                    <img src="{{ asset('uploads/team/' . $team->image) }}" alt="No Image" style="height:60px; width:100px;">
+                                </td>
+                                <td>
+                                    <a href="#">  <i class="fas fa-fw fa-edit"></i> </a>
+                                     <a href="#"><i class="fas fa-fw fa-trash"></i></a>
+                                </td>
                             </tr>
+                          @endforeach
                           </tbody>
                         </table>
                       </div>
@@ -64,7 +83,8 @@
 
             <div class="card-body">
              <row>
-              <form class="needs-validation" action="about.php" method="POST" enctype="multipart/form-data" novalidate="">
+              <form class="needs-validation" action="{{ route('admin.team-store') }}" method="POST" enctype="multipart/form-data" novalidate="">
+                @csrf
                 <div class="form-row">
                   <div class="col-md-5 mb-3">
                     <label for="name"> Full Name </label>
@@ -88,7 +108,7 @@
                   </div>
                   <div class="col-md-4 mb-3">
                     <label for="photo"> Photo </label> <br>
-                    <input type="file" class="" name="fileToUpload" id="" placeholder="" value="" required="">
+                    <input type="file" class="" name="image" id="" placeholder="" value="" required="">
                   </div>
                 </div>
 

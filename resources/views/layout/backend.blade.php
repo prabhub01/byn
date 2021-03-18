@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
   <!-- IonIcons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.0/esm/ionicons.min.js">
 
@@ -21,8 +21,6 @@
 
   <!-- Calender style -->
   <link rel="stylesheet" href="{{ asset('/backend/css/main.css') }}" />
-
-  {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"> --}}
 
 </head>
 <!--
@@ -119,7 +117,7 @@
                   <li class="nav-item">
                     <a href="{{ route ('admin.about') }}" class="nav-link">
                         <i class="nav-icon fas fa-history"></i>
-                      <p>AI Nepal's History</p>
+                      <p>History</p>
                     </a>
                   </li>
                   <li class="nav-item">
@@ -181,10 +179,10 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route ('admin.messages') }}" class="nav-link">
+            <a href="{{ route ('admin.inbox') }}" class="nav-link">
               <i class="nav-icon far fa-envelope"></i>
               <p>
-                Mailbox
+                Inbox
               </p>
             </a>
           </li>
@@ -436,7 +434,17 @@ $(document).ready(function() {
 </script>
 
 <script>
+$(document).ready(function () {
+    $('#dtBasicExample').DataTable();
+    $('.dataTables_length').addClass('bs-select');
+  });
+</script>
+
+<script>
     CKEDITOR.replace( 'details' );
-  </script>
+    CKEDITOR.replace( 'ai_history' );
+    CKEDITOR.replace( 'byn_history' );
+
+</script>
 </body>
 </html>
