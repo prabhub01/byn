@@ -48,10 +48,10 @@
                                 <tr>
                                   <td>{{ $activities->title }}</td>
                                   <td>{{ $activities->date }}</td>
-                                  <td> <img src="{{ asset('uploads/' . $activities->image) }}" alt="No Image" style="height:60px; width:100px;"></td>
                                   <td> {{ $activities->venue }}
+                                  <td> <img src="{{ asset('uploads/activities/' . $activities->image) }}" alt="No Image" style="height:60px; width:100px;"></td>
                                   </td>
-                                  <td><a href=""> <i class="fas fa-fw fa-edit"></i></a> | <a href="activities.php?delete=15"><i class="fas fa-fw fa-trash"></i></a>
+                                  <td><a href="{{ route('admin.edit-activity', $activities->id) }}"> <i class="fas fa-fw fa-edit"></i></a> | <a href=""><i class="fas fa-fw fa-trash"></i></a>
                                   </td>
                                 </tr>
                                 @endforeach

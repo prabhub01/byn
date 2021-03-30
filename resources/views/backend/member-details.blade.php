@@ -56,7 +56,7 @@
                     <b>Validity Upto</b> <a class="float-right">{{ $data->valid_upto }}</a>
                   </li>
                   <li class="list-group-item">
-                    <b>Contact</b> <a class="float-right">{{ $data->mobile }}</a>
+                    <b>Age</b> <a class="float-right">{{ $data->age }}</a>
                   </li>
                 </ul>
               </div>
@@ -71,29 +71,19 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+                <strong><i class="fas fa-book mr-1"></i> Contact</strong>
+                <p class="text-muted">
+                    {{ $data->mobile }} &nbsp;&nbsp; {{ $data->phone }}
+                </p>
+                <hr>
                 <strong><i class="fas fa-book mr-1"></i> Education</strong>
-
                 <p class="text-muted">
-
+                    {{ $data->education }}
                 </p>
-
                 <hr>
-
                 <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
-
-                <p class="text-muted"></p>
-
+                <p class="text-muted">N/A</p>
                 <hr>
-
-                <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
-
-                <p class="text-muted">
-                  {{-- <span class="tag tag-danger">UI Design</span>
-                  <span class="tag tag-success">Coding</span>
-                  <span class="tag tag-info">Javascript</span>
-                  <span class="tag tag-warning">PHP</span>
-                  <span class="tag tag-primary">Node.js</span> --}}
-                </p>
                 </div>
               <!-- /.card-body -->
             </div>

@@ -50,3 +50,8 @@ Route::post('/update-contact/{id}', [App\Http\Controllers\Admin\ContactControlle
 // Activities
 Route::get('/activities', [App\Http\Controllers\Admin\ActivitiesController::class, 'index'])->name('admin.activities');
 Route::post('/store-activity', [App\Http\Controllers\Admin\ActivitiesController::class, 'store'])->name('admin.store-activity');
+Route::get('/edit/{id}', [App\Http\Controllers\Admin\ActivitiesController::class, 'edit'])->name('admin.edit-activity');
+Route::post('/update/{id}', [App\Http\Controllers\Admin\ActivitiesController::class, 'update'])->name('admin.update-activity');
+
+//Reports
+Route::get('/reports', [App\Http\Controllers\Admin\ReportController::class, 'index'])->name('admin.reports');

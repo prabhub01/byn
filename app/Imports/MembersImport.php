@@ -24,7 +24,8 @@ class MembersImport implements ToModel
             'education' => $row[6],
             'mobile' => $row[7],
             'phone' => $row[8],
-            'email' => $row[9],
+            'age' => $row[9],
+            'email' => $row[10],
         ]);
     }
 }

@@ -19,29 +19,32 @@
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach ($data as $inbox)
-                        <tr>
-                            <td>{{ $inbox->id }}</td>
-                            <td>{{ $inbox->created_at }}</td>
-                            <td>{{ $inbox->sender }}</td>
-                            <td>{{ $inbox->email }}</td>
-                            <td>{{ $inbox->mobile }}</td>
-                            <td>
-                                <div style="height:50px; overflow:hidden;">
-                                    {{ $inbox->message }}
-                                </div>
-                            </td>
-                            <td>
-                                <a href="#" class="" data-toggle="modal" data-target="#modal-lg"><i class="far fa-eye"></i></a> |
-                                <a href="#"><i class="far fa-check-circle"></i></a>
-                            </td>
-                        </tr>
-                    @endforeach
+                    @if (!empty($data) && $data->count())
+                        @foreach ($data as $inbox)
+                            <tr>
+                                <td>{{ $inbox->id }}</td>
+                                <td>{{ $inbox->created_at }}</td>
+                                <td>{{ $inbox->sender }}</td>
+                                <td>{{ $inbox->email }}</td>
+                                <td>{{ $inbox->mobile }}</td>
+                                <td>
+                                    <div style="height:50px; overflow:hidden;">
+                                        {{ $inbox->message }}
+                                    </div>
+                                </td>
+                                <td>
+                                    <a href="#" class="" data-toggle="modal" data-target="#modal-lg"><i class="far fa-eye"></i></a> |
+                                    <a href="#"><i class="far fa-check-circle"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
                 </tbody>
               </table>
 
               {{-- popup modal --}}
 
+              @if (!empty($inbox) && $inbox->count())
               <div class="modal fade" id="modal-lg">
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
@@ -64,6 +67,7 @@
                 <!-- /.modal-dialog -->
               </div>
               <!-- /.modal -->
+              @endif
 
 
             </div>

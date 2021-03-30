@@ -18,12 +18,13 @@ class CreateMembersTable extends Migration
             $table->integer('member_id');
             $table->string('full_name');
             $table->string('gender');
-            $table->date('valid_upto');
+            $table->string('valid_upto');
             $table->string('occupation')->nullable();
             $table->string('education')->nullable();
-            $table->string('mobile');
+            $table->string('mobile')->nullable();
             $table->string('phone')->nullable();
-            $table->string('email');
+            $table->string('age')->nullable();
+            $table->string('email')->nullable();
             $table->timestamps();
         });
     }

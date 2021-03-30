@@ -25,7 +25,6 @@ class MembersController extends Controller
     public function import()
     {
         Excel::import(new MembersImport,request()->file('file'));
-
         return back();
     }
 }

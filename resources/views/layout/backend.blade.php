@@ -19,19 +19,10 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.0.5/css/adminlte.min.css">
 
-  <!-- Calender style -->
+  <!-- Style -->
   <link rel="stylesheet" href="{{ asset('/backend/css/main.css') }}" />
 
 </head>
-<!--
-`body` tag options:
-
-  Apply one or more of the following classes to to the body tag
-  to get the desired effect
-
-  * sidebar-collapse
-  * sidebar-mini
--->
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
@@ -48,9 +39,31 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-   <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link"> <i class="nav-icon fas fa-user"></i> &nbsp; <strong>SuperAdmin</strong></a>
-      </li>
+        {{-- <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link"> <i class="nav-icon fas fa-user"></i> &nbsp; <strong>SuperAdmin</strong></a>
+        </li> --}}
+
+        <li class="nav-item dropdown user-menu">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+              <img src="{{ asset('img/avatar/superadmin.png') }}" class="user-image img-circle elevation-2" alt="User Image">
+              <span class="d-none d-md-inline">Super Admin</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+              <!-- User image -->
+              <li class="user-header bg-primary">
+                <img src="{{ asset('img/avatar/superadmin.png') }}" class="img-circle elevation-2" alt="User Image">
+                <h4>
+                  Super Admin <br>
+                  <small>Banepa Youth Network</small>
+                </h4>
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                <a href="#" class="btn btn-default btn-flat float-right">Sign out</a>
+              </li>
+            </ul>
+          </li>
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -59,154 +72,153 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <img src="img/logo.jpg" alt="" class="brand-image">
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="{{ route ('admin.home') }}" class="nav-link">
-            <i class="nav-icon fas fa-tachometer-alt"></i>
-            <p>
-                Dashboard
-              </p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-link"></i>
-              <p>
-                Site Backend
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview" style="padding-left: 10%;">
-              <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
-                  <i class="nav-icon fas fa-home"></i>
-                  <p>Home</p>
+        <!-- Sidebar -->
+        <div class="sidebar">
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+                with font-awesome or any other icon font library -->
+            <li class="nav-item">
+                <a href="{{ route ('admin.home') }}" class="nav-link">
+                    <i class="nav-icon fas fa-home"></i>
+                <p>
+                    Dashboard
+                </p>
                 </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route ('admin.activities') }}" class="nav-link">
-                <i class="nav-icon fas fa-briefcase"></i>
-                  <p>Activities</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route ('admin.contact') }}" class="nav-link">
-                  <i class="nav-icon fas fa-address-book"></i>
-                  <p>Contact</p>
-                </a>
-              </li>
+            </li>
 
-              {{---Nested menu for About-----}}
-              <li class="nav-item">
+            <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-link"></i>
-                  <p>
-                   About
+                <i class="nav-icon fas fa-link"></i>
+                <p>
+                    Site Backend
                     <i class="fas fa-angle-left right"></i>
-                  </p>
+                </p>
                 </a>
                 <ul class="nav nav-treeview" style="padding-left: 10%;">
-                  <li class="nav-item">
-                    <a href="{{ route ('admin.about') }}" class="nav-link">
-                        <i class="nav-icon fas fa-history"></i>
-                      <p>History</p>
+                <li class="nav-item">
+                    <a href="pages/tables/simple.html" class="nav-link">
+                    <i class="nav-icon fas fa-home"></i>
+                    <p>Home</p>
                     </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{{ route ('admin.team') }}" class="nav-link">
-                        <i class="nav-icon fas fa-handshake"></i>
-                      <p>Our Team</p>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route ('admin.activities') }}" class="nav-link">
+                    <i class="nav-icon fas fa-briefcase"></i>
+                    <p>Activities</p>
                     </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{{ route ('admin.advisor-club') }}" class="nav-link">
-                        <i class="nav-icon fas fa-book-reader"></i>
-                      <p>Advisor Club</p>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route ('admin.contact') }}" class="nav-link">
+                    <i class="nav-icon fas fa-address-book"></i>
+                    <p>Contact</p>
                     </a>
-                  </li>
+                </li>
+
+                {{---Nested menu for About-----}}
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-link"></i>
+                    <p>
+                    About
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
+                    </a>
+                    <ul class="nav nav-treeview" style="padding-left: 10%;">
+                    <li class="nav-item">
+                        <a href="{{ route ('admin.about') }}" class="nav-link">
+                            <i class="nav-icon fas fa-history"></i>
+                        <p>History</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route ('admin.team') }}" class="nav-link">
+                            <i class="nav-icon fas fa-handshake"></i>
+                        <p>Our Team</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route ('admin.advisor-club') }}" class="nav-link">
+                            <i class="nav-icon fas fa-book-reader"></i>
+                        <p>Advisor Club</p>
+                        </a>
+                    </li>
+                    </ul>
+                </li>
+                {{-- ---------------------------------------------- --}}
                 </ul>
-              </li>
-              {{-- ---------------------------------------------- --}}
-            </ul>
-          </li>
+            </li>
+                <li class="nav-item">
+                <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-file-signature"></i>
+                <p>
+                    Minuting
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+                </a>
+                <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{ route ('admin.add-minute') }}" class="nav-link">
+                    <i class="nav-icon fas fa-plus-square"></i>
+                    <p>Add Minute</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route ('admin.view-minute') }}" class="nav-link">
+                    <i class="nav-icon fas fa-eye"></i>
+                    <p>View All Minute</p>
+                    </a>
+                </li>
+                </ul>
+            </li>
             <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-file-signature"></i>
-              <p>
-                Minuting
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route ('admin.add-minute') }}" class="nav-link">
-                  <i class="nav-icon fas fa-plus-square"></i>
-                  <p>Add Minute</p>
+                <a href="{{ route ('admin.calender') }}" class="nav-link">
+                <i class="nav-icon fas fa-calendar-alt"></i>
+                <p>
+                    Calendar
+                    <span class="badge badge-info right">2</span>
+                </p>
                 </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route ('admin.view-minute') }}" class="nav-link">
-                  <i class="nav-icon fas fa-eye"></i>
-                  <p>View All Minute</p>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{ route ('admin.member') }}" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                <p>
+                    Members
+                </p>
                 </a>
-              </li>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route ('admin.inbox') }}" class="nav-link">
+                <i class="nav-icon far fa-envelope"></i>
+                <p>
+                    Inbox
+                </p>
+                </a>
+            </li>
+
+
+            <li class="nav-header">MISCELLANEOUS</li>
+            <li class="nav-item">
+                <a href="" class="nav-link">
+                <i class="nav-icon fas fa-eye"></i>
+                <p>View Site</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route ('admin.reports') }}" class="nav-link">
+                    <i class="nav-icon fas fa-file-pdf"></i>
+                <p>Generate Reports</p>
+                </a>
+            </li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route ('admin.calender') }}" class="nav-link">
-              <i class="nav-icon fas fa-calendar-alt"></i>
-              <p>
-                Calendar
-                <span class="badge badge-info right">2</span>
-              </p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="{{ route ('admin.member') }}" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                Members
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route ('admin.inbox') }}" class="nav-link">
-              <i class="nav-icon far fa-envelope"></i>
-              <p>
-                Inbox
-              </p>
-            </a>
-          </li>
-
-
-          <li class="nav-header">MISCELLANEOUS</li>
-          <li class="nav-item">
-            <a href="" class="nav-link">
-              <i class="nav-icon fas fa-eye"></i>
-              <p>View Site</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="" class="nav-link">
-              <i class="nav-icon fas fa-link"></i>
-              <p>Logout</p>
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
+        </nav>
+        <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
 
   @yield('content')
 

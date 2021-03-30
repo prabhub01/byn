@@ -45,7 +45,7 @@
                             <td> {{ $meeting->location }}</td>
                             <td> {{ $meeting->meeting_type }}</td>
                             <td>
-                                <a href="#" class="" data-toggle="modal" data-target="#modal-lg"><i class="far fa-eye"></i></a> |
+                                <a href="#" class="" data-toggle="modal" data-target="#minute-popup"><i class="far fa-eye"></i></a> |
                                 <a href="#"><i class="fas fa-pencil-alt"></i></a>
                             </td>
                         </tr>
@@ -54,7 +54,7 @@
             </table>
               {{-- popup modal --}}
 
-              <div class="modal fade" id="modal-lg">
+              <div class="modal fade" id="minute-popup">
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -69,6 +69,7 @@
                             <div class="card-body p-0">
                               <table class="table table-sm">
                                 <tbody>
+                              @if (!empty($meeting) && $meeting->count())
                                   <tr>
                                       <td><strong>Date<strong></td>
                                     <td>{{ $meeting->date }}</td>
@@ -95,14 +96,15 @@
                                 </tr>
                                 <tr>
                                     <td> <strong>Image</strong> </td>
-                                    <td><img src="{{ asset('uploads/minute/' . $meeting->photo1) }}" alt="No Image"></td>
+                                    <td>
+                                      <img src="{{ asset('uploads/minute/' . $meeting->photo1) }}" alt="No Image" width="80%">
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td><strong>Image</strong></td>
                                     <td><img src="{{ asset('uploads/minute/' . $meeting->photo2) }}" alt="No Image Available"></td>
                                 </tr>
-                                <tr>
-
+                                @endif
                                 </tbody>
                               </table>
                             </div>
