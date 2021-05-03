@@ -64,7 +64,7 @@
                                         </li>
                                         <li><a href="activities.php">Our Activities</a></li>
                                         <li><a href="https://amnestynepal.org/category/appeal-for-action/" target="_blank">Appeal for Action</a></li>
-                                        <li><a href="joinus.php">Join Us</a></li>
+                                        <li><a href="{{ route ('join-us') }}">Join Us</a></li>
                                         <li><a href="contact.php">Contact</a></li>
                                     </ul>
                                 </nav>

@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class JoinUsController extends Controller
 {
-    //
+    public function show()
+    {
+        return view('frontend.joinus');
+    }
 }

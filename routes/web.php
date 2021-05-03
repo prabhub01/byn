@@ -25,4 +25,4 @@ Route::get('/index', [App\Http\Controllers\HomeController::class, 'show'])->name
 Route::get('/about-us', [App\Http\Controllers\AboutController::class, 'show'])->name('about-us');
 
 //About Page
-Route::get('/about-us', [App\Http\Controllers\AboutController::class, 'show'])->name('about-us');
+Route::get('/join-us', [App\Http\Controllers\JoinUsController::class, 'show'])->name('join-us');
