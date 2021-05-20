@@ -31,21 +31,16 @@
                     <form class="needs-validation" action="{{ route('admin.update-activity', $details->id) }}" method="POST" enctype="multipart/form-data" novalidate="">
                         @csrf
                         <div class="form-row">
-                        <div class="col-md-4 mb-3">
-                            <label for="title"> Title </label>
-                            <input type="text" class="form-control" id="title" name="title" placeholder="" value="{{ $details->title }}" required="">
-                        </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="title"> Title </label>
+                                <input type="text" class="form-control" id="title" name="title" placeholder="" value="{{ $details->title }}" required="">
+                            </div>
 
-                        <div class="col-md-4 mb-3">
-                            <label for="date">Date </label>
-                            <input type="date" class="form-control" id="date" name="date" placeholder="" value="{{ $details->date }}" required="">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="venue">Venue </label>
-                            <input type="text" class="form-control" id="venue" name="venue" placeholder="" value="{{ $details->venue }}" required="">
-                        </div>
-
-                        </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="title"> Title Nepali </label>
+                                <input type="text" class="form-control" id="title" name="title" placeholder="" value="{{ $details->title }}" required="">
+                            </div>
+                       </div>
 
                         <div class="form-row">
                             <div class="col-md-4 mb-3">

@@ -61,6 +61,7 @@
                                                 <li><a href="https://www.amnesty.org/en/get-involved/take-action/" target="_blank">International Campaign</a></li>
                                                 <li><a href="https://amnestynepal.org/campaign-materials/" target="_blank">Campaign Materials</a></li>
                                             </ul>
+
                                         </li>
                                         <li><a href="activities.php">Our Activities</a></li>
                                         <li><a href="https://amnestynepal.org/category/appeal-for-action/" target="_blank">Appeal for Action</a></li>
