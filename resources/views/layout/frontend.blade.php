@@ -51,22 +51,22 @@
                                         <li><a href="#">About <i class="fas fa-sort-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="https://www.amnesty.org/en/who-we-are/" target="_blank">Amnesty International</a></li>
-                                                <li><a href="https://amnestynepal.org/amnesty-international-nepal/" target="_blank">Amnesty International Nepal</a></li>
+                                                <li><a href="https://amnestynepal.org/who-we-are/" target="_blank">Amnesty International Nepal</a></li>
                                                 <li><a href="{{ route ('about-us') }}">Banepa Youth Network</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="#">Campaign <i class="fas fa-sort-down"></i></a>
                                             <ul class="submenu">
-                                                <li><a href="https://amnestynepal.org/our-activities/" target="_blank">Amnesty International Nepal Activities</a></li>
-                                                <li><a href="https://www.amnesty.org/en/get-involved/take-action/" target="_blank">International Campaign</a></li>
-                                                <li><a href="https://amnestynepal.org/campaign-materials/" target="_blank">Campaign Materials</a></li>
+                                                <li><a href="https://amnestynepal.org/category/activities/" target="_blank">Amnesty International Nepal Activities</a></li>
+                                                <li><a href="https://www.amnesty.org/en/latest/campaigns/" target="_blank">International Campaign</a></li>
+                                                <li><a href="#" target="_blank">Campaign Materials</a></li>
                                             </ul>
 
                                         </li>
-                                        <li><a href="activities.php">Our Activities</a></li>
+                                        <li><a href="#">Our Activities</a></li>
                                         <li><a href="https://amnestynepal.org/category/appeal-for-action/" target="_blank">Appeal for Action</a></li>
                                         <li><a href="{{ route ('join-us') }}">Join Us</a></li>
-                                        <li><a href="contact.php">Contact</a></li>
+                                        <li><a href="#">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -94,8 +94,8 @@
                             Join With Us
                         </h3>
                         <ul>
-                            <li><a href="joinus.php">Join Us</a></li>
-                            <li><a href="https://academy.amnesty.org/learn" target="_blank">Online Academy</a></li>
+                            <li><a href="#">Join Us</a></li>
+                            <li><a href="#" target="_blank">Online Academy</a></li>
                             <li><a href="{{ route ('admin.home') }}" target="_blank">Member Login</a></li>
                         </div>
                     </div>
@@ -125,10 +125,10 @@
                                     Quick Navigation
                                 </h3>
                                 <ul>
-                                    <li><a href="index.php">Home</a></li>
-                                    <li><a href="about.php">About Us</a></li>
-                                    <li><a href="contact.php">Contact</a></li>
-                                    <li><a href="Joinus.php">Get Membership</a></li>
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                    <li><a href="#">Get Membership</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -138,10 +138,10 @@
                                     AI Nepal Section
                                 </h3>
                                 <ul>
-                                    <li><a href="https://amnestynepal.org/amnesty-international-nepal/national-board/">National Board</a></li>
+                                    <li><a href="https://amnestynepal.org/who-we-are/national-board/">National Board</a></li>
                                     <li><a href="https://amnestynepal.org/publications/">Publications</a></li>
-                                    <li><a href="https://amnestynepal.org/our-activities/">Activities</a></li>
-                                    <li><a href="https://amnestynepal.org/campaign-materials/">Campaign Materials</a></li>
+                                    <li><a href="https://amnestynepal.org/category/activities/">Activities</a></li>
+                                    <li><a href="#">Campaign Materials</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -179,6 +179,21 @@
             {{-- Nav --}}
             {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/jquery.slicknav.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> --}}
+
+
+            <script>
+                //show or hide the verify documents
+            function myFunction() {
+              var checkBox = document.getElementById("myCheck");
+              var text = document.getElementById("verified");
+              if (checkBox.checked == true){
+                text.style.display = "none";
+              } else {
+                 text.style.display = "block";
+              }
+            }
+
+            </script>
 
             <!-- JS here -->
             <script src="{{ asset('/frontend/js/vendor/modernizr-3.5.0.min.js') }}"></script>

@@ -98,7 +98,7 @@
                 </a>
                 <ul class="nav nav-treeview" style="padding-left: 10%;">
                 <li class="nav-item">
-                    <a href="pages/tables/simple.html" class="nav-link">
+                    <a href="{{ route ('admin.home') }}" class="nav-link">
                     <i class="nav-icon fas fa-home"></i>
                     <p>Home</p>
                     </a>
@@ -119,7 +119,7 @@
                 {{---Nested menu for About-----}}
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-link"></i>
+                    <i class="nav-icon fas fa-briefcase"></i>
                     <p>
                     About
                         <i class="fas fa-angle-left right"></i>
@@ -145,6 +145,12 @@
                         </a>
                     </li>
                     </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route ('admin.external_links') }}" class="nav-link">
+                    <i class="nav-icon fas fa-link"></i>
+                    <p>External Links</p>
+                    </a>
                 </li>
                 {{-- ---------------------------------------------- --}}
                 </ul>

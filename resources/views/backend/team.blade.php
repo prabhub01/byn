@@ -58,7 +58,7 @@
                                     {{ $team->insta_link }} <br> <hr>
                                 </td>
                                 <td>
-                                    <img src="{{ asset('uploads/banners/image/' . $team->image) }}" alt="No Image" style="height:60px; width:100px;">
+                                    <img src="{{ asset('uploads/team/' . $team->image) }}" alt="No Image" style="height:60px; width:100px;">
                                 </td>
                                 <td>
                                     <a href="#">  <i class="fas fa-fw fa-edit"></i> </a>

@@ -53,5 +53,9 @@ Route::post('/store-activity', [App\Http\Controllers\Admin\ActivitiesController:
 Route::get('/edit/{id}', [App\Http\Controllers\Admin\ActivitiesController::class, 'edit'])->name('admin.edit-activity');
 Route::post('/update/{id}', [App\Http\Controllers\Admin\ActivitiesController::class, 'update'])->name('admin.update-activity');
 
+// External Links
+Route::get('/external-links', [App\Http\Controllers\Admin\ExternalLinkController::class, 'index'])->name('admin.external_links');
+Route::post('/external-links/{id}', [App\Http\Controllers\Admin\ExternalLinkController::class, 'update'])->name('admin.update_external_links');
+
 //Reports
 Route::get('/reports', [App\Http\Controllers\Admin\ReportController::class, 'index'])->name('admin.reports');
