@@ -61,19 +61,19 @@
           </div>
 
           <div class="form-row">
-            <div class="col-md-3 mb-2">
+            <div class="col-md-4 mb-2">
                   <label for="validationDefault07">Date of Birth (AD) *</label>
                   <input type="date" class="form-control" id="validationDefault07" placeholder="1996-11-28" name="dobad" >
               </div>
               <div class="col-md-3 mb-2">
                   <label for="validationDefault08">Date of Birth (BS)</label>
-                  <input type="text" class="form-control" id="validationDefault08" placeholder="2053-08-13" name="dobbs" >
+                  <input type="text" class="form-control" id="validationDefault08" placeholder="dd/mm/yyyy" name="dobbs" >
               </div>
-              <div class="col-md-1 mb-2">
+              {{-- <div class="col-md-1 mb-2">
                   <label for="validationDefault09">Age * </label>
                   <input type="number" class="form-control" id="validationDefault09" placeholder="" name="age" >
-              </div>
-              <div class="col-md-3 mb-2">
+              </div> --}}
+              <div class="col-md-3 mb-1">
                   <label for="validationDefault10">Occupation</label>
                   <input type="text" class="form-control" id="validationDefault10" placeholder="" name="occupation" >
               </div>
@@ -131,6 +131,9 @@
                     <label for="Provience">Provience/State *</label>
                   <select id="Provience" class="form-control"  name="state" >
                     <option value="" selected>----Select----</option>
+                    @foreach ($provience as $item)
+                    <option value="$item->provience">{{ $item->proviences }}</option>
+                      @endforeach
                 </select>
                 </div>
 
@@ -138,14 +141,18 @@
                     <label for="District">District * </label>
                   <select id="District" class="form-control" name="district" >
                     <option value="" selected>----Select----</option>
+                    @foreach ($district as $item)
+                    <option value="$item->district">{{ $item->district }}</option>
+                      @endforeach
                 </select>
                 </div>
 
                 <div class="form-group col-md-3">
                     <label for="munvdc">Municipality/Rural Municipality * </label>
-                  <select id="Munvdc" class="form-control" name="munvdc" >
+                    <input type="text" class="form-control" id="munvdc" placeholder="" name="munvdc" >
+                    {{-- <select id="Munvdc" class="form-control" name="munvdc" >
                     <option value="" selected>----Select----</option>
-                </select>
+                </select> --}}
                 </div>
               </div>
 
